@@ -38,5 +38,13 @@ public class ContributionService {
         return  contributions;
     }
 
+    public Contribution getContributer(int id){
+
+        Contribution contributor = contributions.stream().filter(t -> t.getId() == id)
+                                    .findFirst()
+                                    .orElse(null);
+                return contributor;
+    }
+
 
 }
