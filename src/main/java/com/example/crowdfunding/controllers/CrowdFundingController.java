@@ -1,23 +1,27 @@
 package com.example.crowdfunding.controllers;
 
 import com.example.crowdfunding.modal.Contribution;
+import com.example.crowdfunding.services.ContributionService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+import java.util.Arrays;
+import java.util.List;
+
+@RestController
 public class CrowdFundingController {
 
-    @GetMapping("contributions")
-    public String contributionList(Model model){
+    @Autowired
+    private ContributionService contributionService;
 
+    @RequestMapping(value = "/contributions")
+    public List<Contribution> getcontributionList(){
 
-        Contribution aContribution;
-        aContribution = new Contribution(1,"John", "ctsungu@gmail.com",
-                "Colchester",
-                "cancer fund",
-                5456745);
-        model.addAttribute("contribution",aContribution);
-        return "contributions";
+        return contributionService.contributionList();
+
     }
 }

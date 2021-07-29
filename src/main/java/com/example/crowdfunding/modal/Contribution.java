@@ -5,8 +5,10 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.Entity;
 import javax.persistence.Id;
 
+@Entity
 @Data
 public class Contribution {
 
@@ -21,6 +23,8 @@ public class Contribution {
 
     private String purpose;
 
+
+    //many to one
     private Integer bankdetails;
 
  public Contribution() {
