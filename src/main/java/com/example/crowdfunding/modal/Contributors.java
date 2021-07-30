@@ -7,7 +7,7 @@ import javax.persistence.Id;
 
 @Entity
 @Data
-public class Fundraisers {
+public class Contributors {
 
     @Id
     private Integer ID;
