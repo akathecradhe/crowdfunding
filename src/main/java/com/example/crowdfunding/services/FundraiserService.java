@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Set;
 
 @Service
 
@@ -19,6 +20,11 @@ public class FundraiserService {
     public List<Fundraiser> fundraiserList() {
 
         return fundraiserRepo.findAll();
+    }
+
+    public List<Fundraiser> findByLocation(String loctaion) {
+
+        return fundraiserRepo.findFundraiserByLocation(loctaion);
     }
 
 

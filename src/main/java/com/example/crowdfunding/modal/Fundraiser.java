@@ -31,7 +31,6 @@ public class Fundraiser {
  @NonNull
  private String purpose;
 
-
  @NonNull
  private Integer bankdetails;
 
@@ -40,6 +39,11 @@ public class Fundraiser {
 
  @NonNull
  private Date targetdate;
+
+// @NonNull
+//private Integer currentlyDonated;
+
+
 
  public Fundraiser() {
 
