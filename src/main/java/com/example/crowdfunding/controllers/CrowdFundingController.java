@@ -41,7 +41,7 @@ public class CrowdFundingController {
 
     public String search(@RequestParam("search") String search, Model model){
 
-        List<Fundraiser> fundraisers = fundraiserService.findByLocation(search);
+        List<Fundraiser> fundraisers = fundraiserService.getBySearch(search);
 
         model.addAttribute("fundraisers",fundraisers);
 
