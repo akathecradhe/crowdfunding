@@ -41,11 +41,15 @@ public class CrowdFundingController {
 
     public String search(@RequestParam("search") String search, Model model){
 
-        List<Fundraiser> fundraisers = fundraiserService.getBySearch(search);
+        List<Fundraiser> fundraisers;
+
+        if (search.equals("")){
+            fundraisers = fundraiserService.fundraiserList();
+        }else {
+            fundraisers = fundraiserService.getBySearch(search);
+        }
 
         model.addAttribute("fundraisers",fundraisers);
-
-
         return "fundraisers";
     }
 
