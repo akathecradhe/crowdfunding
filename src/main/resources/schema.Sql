@@ -7,4 +7,5 @@ CREATE TABLE `fundraiser` (
   `PURPOSE` VARCHAR(500) NULL,
   `targetAmount` INT NOT NULL,
   `targetDate` DATE NOT NULL,
+  `currentAmount` INT ,
   PRIMARY KEY (`id`));

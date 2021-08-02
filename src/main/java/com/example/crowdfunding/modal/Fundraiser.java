@@ -40,8 +40,7 @@ public class Fundraiser {
  @NonNull
  private Date targetdate;
 
-// @NonNull
-//private Integer currentlyDonated;
+ private Integer currentamount;
 
 
 
