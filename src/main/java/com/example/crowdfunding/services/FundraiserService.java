@@ -39,6 +39,7 @@ public class FundraiserService {
 
         List<Fundraiser> fundraiserSearch;
 
+        //regex To see if the search is a number
         if (search.matches("^-?\\d+$")) {
             fundraiserSearch = fundraiserRepo.findFundraiserByTargetamountLessThan(Integer.parseInt(search));
         } else {
