@@ -56,6 +56,19 @@ public class CrowdFundingController {
 
     public  String startContribution (@PathVariable int fundraiserid, Model model ){
 
+        Fundraiser fundraiser = fundraiserService.findFundraiserById(fundraiserid);
+
+        System.out.println(fundraiserid);
+
+        return "contributions";
+    }
+
+
+    @RequestMapping(value = "/contribute/{fundraiserid}", method = RequestMethod.POST)
+
+    public  String submitform (@PathVariable int fundraiserid, Model model ){
+
+        Fundraiser fundraiser = fundraiserService.findFundraiserById(fundraiserid);
 
         System.out.println(fundraiserid);
 

@@ -35,6 +35,11 @@ public class FundraiserService {
         return  fundraiserRepo.findFundraiserByTargetamountLessThan(amount);
     }
 
+    public Fundraiser findFundraiserById(int amount){
+
+        return fundraiserRepo.findFundraiserById(amount);
+    }
+
     public List<Fundraiser> getBySearch(String search){
 
         List<Fundraiser> fundraiserSearch;

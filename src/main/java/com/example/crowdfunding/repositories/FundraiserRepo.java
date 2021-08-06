@@ -18,6 +18,8 @@ public interface FundraiserRepo extends JpaRepository<Fundraiser,Integer> {
 
     public List<Fundraiser> findFundraiserByTargetamountLessThan(int amount);
 
+    public Fundraiser findFundraiserById(int amount);
+
 }
 
 
