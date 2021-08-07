@@ -1,5 +1,6 @@
 package com.example.crowdfunding.controllers;
 
+import com.example.crowdfunding.modal.ContributionForm;
 import com.example.crowdfunding.modal.Fundraiser;
 import com.example.crowdfunding.services.FundraiserService;
 import jdk.swing.interop.SwingInterOpUtils;
@@ -7,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -28,7 +30,6 @@ public class CrowdFundingController {
 
     @GetMapping("/fundraisers")
     public String getcontributionList(Model model){
-
 
         model.addAttribute("fundraisers",fundraiserService.fundraiserList());
 
@@ -52,27 +53,35 @@ public class CrowdFundingController {
         return "fundraisers";
     }
 
-    @RequestMapping(value = "/contribute/{fundraiserid}", method = RequestMethod.GET)
+    @GetMapping("/contribute/{fundraiserid}")
 
-    public  String startContribution (@PathVariable int fundraiserid, Model model ){
+    public  String newContribution (@PathVariable int fundraiserid, Model model ){
 
         Fundraiser fundraiser = fundraiserService.findFundraiserById(fundraiserid);
 
-        System.out.println(fundraiserid);
+        model.addAttribute("contributionForm", new ContributionForm());
+
+        //System.out.println(fundraiserid);
 
         return "contributions";
     }
 
 
-    @RequestMapping(value = "/contribute/{fundraiserid}", method = RequestMethod.POST)
+    @PostMapping("/contribute/submit")
 
-    public  String submitform (@PathVariable int fundraiserid, Model model ){
+    public  String submitform (@ModelAttribute("contribution") ContributionForm contribution, BindingResult bindings){
 
-        Fundraiser fundraiser = fundraiserService.findFundraiserById(fundraiserid);
 
-        System.out.println(fundraiserid);
+        System.out.println(contribution.getName());
 
-        return "contributions";
+            //we need to add the new charity to the list, so we need a method on a service - but which service?
+            //let's apply CQRS - Command Query Request Separation
+
+            System.out.println("Hello");
+
+
+
+        return "thankYou.html";
     }
 
 

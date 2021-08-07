@@ -26,39 +26,35 @@
 <br>
 
 
-
-
-
-<form th:action="@{/fundraisers/search}" method="get">
+<form action="/contribute/submit" th:object="${contributionForm}" method='post' >
     <div class="row" >
         <div class="col">
-            <input type="text" class="form-control" placeholder="Name">
+            <input type="text" class="form-control" placeholder="Name" th:field="*{name}">
         </div>
-        <div class="col">
-            <input type="text" class="form-control" placeholder="Email">
+        <div class="col" >
+            <input type="text" class="form-control" placeholder="Email" th:field="*{email}">
         </div>
     </div>
     <br>
-
     <div class="row">
         <div class="col">
-            <input type="text" class="form-control" placeholder="amount to contribute">
+            <input type="text" class="form-control" placeholder="amount to contribute" th:field="*{amount}">
         </div>
     </div>
-
     <br>
-
     <div class="row">
         <div class="col">
-            <input type="text" class="form-control" placeholder="Bank account  ">
+            <input type="text" class="form-control" placeholder="Bank account number (6 digit field)" th:field="*{accountNumber}">
         </div>
 
     </div>
 
     <button class="btn btn-outline-success my-2 my-sm-0" type="submit"> Contribute </button>
 
-
 </form>
+
+
+
 
 
 
