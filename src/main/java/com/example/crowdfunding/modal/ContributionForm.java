@@ -36,7 +36,7 @@ public class ContributionForm {
     private Integer amount;
 
     @NotNull
-    private String accountNumber;
+    private Integer accountNumber;
 
 
 

@@ -16,7 +16,7 @@ public interface ContributerRepo extends JpaRepository<ContributionForm,Integer>
 
     public List<ContributionForm> findContributionFormById(int id);
 
-   // public List<ContributionForm> sa
+    public ContributionForm save(ContributionForm aForm);
 
 
 }
