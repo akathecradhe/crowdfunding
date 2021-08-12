@@ -20,6 +20,8 @@ public interface FundraiserRepo extends JpaRepository<Fundraiser,Integer> {
 
     public Fundraiser findFundraiserById(int amount);
 
+    public Fundraiser save(Fundraiser afundraiser);
+
 }
 
 

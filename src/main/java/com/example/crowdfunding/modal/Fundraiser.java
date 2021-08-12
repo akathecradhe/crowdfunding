@@ -44,7 +44,5 @@ public class Fundraiser {
 
 
 
- public Fundraiser() {
 
- }
 }

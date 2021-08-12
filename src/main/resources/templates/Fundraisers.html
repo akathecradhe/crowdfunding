@@ -46,7 +46,7 @@
                     <p class="card-text" >Target Amount: <span th:text="${fundraiser.targetamount}">target</span></p>
                     <p class="card-text" >Current Amount: <span th:text="${fundraiser.currentamount}">target</span></p>
                     <p class="card-text" th:text="${fundraiser.purpose}">Purpose</p>
-                    <a href="#" class="btn btn-primary" th:href="@{/contribute/{fundraiserid} (fundraiserid=${fundraiser.id})}") name="fundraiserid" >Contribute</a>
+                    <a href="#" class="btn btn-primary" th:href="@{/contribute/{id} (id=${fundraiser.id})}") name="fundraiserid" >Contribute</a>
                     <p class="card-text"><small class="text-muted"><span th:text="${fundraiser.targetdate}"> target Date </span></small></p>
                 </div>
             </div>

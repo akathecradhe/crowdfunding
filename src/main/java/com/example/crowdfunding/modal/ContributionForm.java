@@ -36,8 +36,12 @@ public class ContributionForm {
     private Integer amount;
 
     @NotNull
-    private Integer accountNumber;
+    private Integer  accountNumber;
 
+    // Who the value is contributed to. Can be used to create a report of
+    // all the contributions made
+    @NotNull
+    private Integer fundraiserid;
 
 
 

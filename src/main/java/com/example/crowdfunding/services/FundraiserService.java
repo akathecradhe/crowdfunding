@@ -13,7 +13,6 @@ import java.util.Set;
 
 
 @Service
-
 public class FundraiserService {
 
 
@@ -35,9 +34,9 @@ public class FundraiserService {
         return  fundraiserRepo.findFundraiserByTargetamountLessThan(amount);
     }
 
-    public Fundraiser findFundraiserById(int amount){
+    public Fundraiser findFundraiserById(int id){
 
-        return fundraiserRepo.findFundraiserById(amount);
+        return fundraiserRepo.findFundraiserById(id);
     }
 
     public List<Fundraiser> getBySearch(String search){
@@ -52,6 +51,20 @@ public class FundraiserService {
         }
 
         return fundraiserSearch;
+    }
+
+    public void updateAmountById(Integer idOfFundraiser, Integer amount) {
+
+        Integer current = findFundraiserById(idOfFundraiser).getCurrentamount();
+        Integer newAmount = current+ amount;
+
+        findFundraiserById(idOfFundraiser).setCurrentamount(newAmount);
+
+        Fundraiser afundraiser =  findFundraiserById(idOfFundraiser);
+
+        System.out.println(afundraiser.getCurrentamount());
+
+        fundraiserRepo.save(afundraiser);
     }
 
 

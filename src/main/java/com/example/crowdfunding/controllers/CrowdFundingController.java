@@ -2,6 +2,7 @@ package com.example.crowdfunding.controllers;
 
 import com.example.crowdfunding.modal.ContributionForm;
 import com.example.crowdfunding.modal.Fundraiser;
+import com.example.crowdfunding.services.ContributionService;
 import com.example.crowdfunding.services.FundraiserService;
 import jdk.swing.interop.SwingInterOpUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,11 @@ public class CrowdFundingController {
 
     @Autowired
     private FundraiserService fundraiserService;
+
+    @Autowired
+    private ContributionService contributionService;
+
+    private Integer id;
 
     @GetMapping("/")
     public String homePage(){
@@ -55,11 +61,12 @@ public class CrowdFundingController {
 
     @GetMapping("/contribute/{fundraiserid}")
 
-    public  String newContribution (@PathVariable int fundraiserid, Model model ){
+    public  String newContribution (@PathVariable Integer fundraiserid, Model model ){
 
-        Fundraiser fundraiser = fundraiserService.findFundraiserById(fundraiserid);
 
+        id = fundraiserid;
         model.addAttribute("contributionForm", new ContributionForm());
+        model.addAttribute("fundraiserid", fundraiserid);
 
         //System.out.println(fundraiserid);
 
@@ -72,14 +79,21 @@ public class CrowdFundingController {
     public  String submitform (@ModelAttribute("contribution") ContributionForm contribution, BindingResult bindings){
 
 
-        System.out.println(contribution.getName());
+        Fundraiser afundraiser = fundraiserService.findFundraiserById(id);
+        String name = contribution.getName();
+        String email = contribution.getEmail();
+        Integer amount= contribution.getAmount();
+        Integer bankDetails = contribution.getAccountNumber();
+        ContributionForm aform = new ContributionForm();
 
-            //we need to add the new charity to the list, so we need a method on a service - but which service?
-            //let's apply CQRS - Command Query Request Separation
+        aform.setName(name);
+        aform.setEmail(email);
+        aform.setAccountNumber(bankDetails);
+        aform.setAmount(amount);
+        aform.setFundraiserid(id);
 
-            System.out.println("Hello");
-
-
+        contributionService.addContribution(aform);
+        fundraiserService.updateAmountById(id,contribution.getAmount());
 
         return "thankYou.html";
     }

@@ -1,5 +1,5 @@
 CREATE TABLE `fundraiser` (
-  `id` INT NOT NULL AUTO_INCREMENT,
+  `ID` INT NOT NULL AUTO_INCREMENT,
   `BANKDETAILS` VARCHAR(45) NULL,
   `EMAIL` VARCHAR(45) NULL,
   `LOCATION` VARCHAR(45) NULL,
@@ -8,15 +8,16 @@ CREATE TABLE `fundraiser` (
   `targetAmount` INT NOT NULL,
   `targetDate` DATE NOT NULL,
   `currentAmount` INT ,
-  PRIMARY KEY (`id`));
+  PRIMARY KEY (`ID`));
 
 
-CREATE TABLE `contributionForm` (
+CREATE TABLE `CONTRIBUTION_FORM` (
                                     `id` INT NOT NULL AUTO_INCREMENT,
                                     `name` VARCHAR(45) NULL,
                                     `email` VARCHAR(45) NULL,
                                     `amount` INT NOT NULL,
-                                    `accountNumber` INT NOT NULL,
+                                    `ACCOUNT_NUMBER` INT NOT NULL,
+                                    `fundraiserid` INT NOT NULL,
                                     PRIMARY KEY (`id`));
 
 
