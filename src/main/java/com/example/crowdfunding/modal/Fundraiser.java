@@ -43,6 +43,7 @@ public class Fundraiser {
  private Integer currentamount;
 
 
-
+ public Fundraiser() {
+ }
 
 }
