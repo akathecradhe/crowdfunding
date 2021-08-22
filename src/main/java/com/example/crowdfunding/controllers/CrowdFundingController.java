@@ -29,8 +29,6 @@ public class CrowdFundingController {
 
     @GetMapping("/")
     public String homePage(){
-
-
         return "CrowdFundingHome";
     }
 
